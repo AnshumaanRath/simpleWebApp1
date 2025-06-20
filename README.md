@@ -1,100 +1,116 @@
- Simple Product Management API – Spring Boot
-tags:
+# 🛒 Simple Product Management API – Spring Boot
 
-Spring Boot
-REST API
-H2 Database
-CRUD
-Java
-🛒 Simple Product Management API – Spring Boot
-This is a basic Spring Boot REST API for managing products. It supports full CRUD operations (Create, Read, Update, Delete) and uses an in-memory H2 database. The API is tested using Postman and runs locally on http://localhost:8080.
+A lightweight **REST API** built with **Spring Boot** for managing products. It supports **CRUD operations** (Create, Read, Update, Delete) and uses an in-memory **H2 database**.
 
-📦 Features
-Add new products
-Retrieve all products
-Retrieve a product by ID
-Update product details
-Delete a product
+> 🌐 Runs locally at: `http://localhost:8080`
 
-🧩 Technologies Used
-Java 17+
-Spring Boot
-Spring Web
-H2 Database (In-memory)
-Postman (for testing)
+---
 
+## 📦 Features
 
-📁 API Endpoints
-Method	Endpoint	Description
-GET	/get products	Retrieve all products
-GET	/get products/{prodid}	Retrieve product by ID
-POST	/get products	Add a new product (JSON body)
-PUT	/update products	Update existing product
-DELETE	/get products/delete/{prodid}	Delete product by ID
+- ➕ Add new products  
+- 📄 Retrieve all products  
+- 🔍 Retrieve a product by ID  
+- 📝 Update product details  
+- ❌ Delete a product  
 
-Export to Sheets
+---
 
-🚀 How to Run the Project
-Step 1: Clone the Repository
-Bash
+## 🧩 Technologies Used
 
-git clone https://github.com/your-username/simple-product-api.git
-cd simple-product-api
-Step 2: Run the Application
-You have two options to run the application:
+| Technology      | Description                       |
+|----------------|-----------------------------------|
+| Java 17+       | Programming Language              |
+| Spring Boot    | Main framework for building APIs  |
+| Spring Web     | REST API handling                 |
+| H2 Database    | In-memory database for persistence|
+| Postman        | API testing tool                  |
 
-Option 1: Using Maven Wrapper (No need to install Maven separately)
-Bash
+---
 
+## 📁 API Endpoints
+
+| Method | Endpoint                         | Description               |
+|--------|----------------------------------|---------------------------|
+| GET    | `/get products`                  | Retrieve all products     |
+| GET    | `/get products/{prodid}`         | Retrieve product by ID    |
+| POST   | `/get products`                  | Add a new product         |
+| PUT    | `/update products`               | Update existing product   |
+| DELETE | `/get products/delete/{prodid}`  | Delete product by ID      |
+
+---
+
+## 🚀 How to Run the Project
+
+### Step 1: Run the Application
+
+#### Option 1: Using Maven Wrapper
+
+```bash
 ./mvnw spring-boot:run
-Option 2: Run from IDE
-Open SimpleWebAppApplication.java in your IDE and run the main method directly.
+```
 
-Step 3: Access the Application
-API Base URL: http://localhost:8080
-H2 Console: http://localhost:8080/h2-console
-🧪 Testing the API with Postman
-You can use Postman to test each API endpoint manually.
+#### Option 2: Run from IDE
 
-Open Postman and choose the appropriate HTTP method (GET, POST, PUT, DELETE).
-Use an endpoint like: http://localhost:8080/get products
-For POST / PUT Requests:
-When sending POST or PUT requests, you'll need to configure the request body:
+- Open `SimpleWebAppApplication.java`
+- Run the `main()` method
 
-Go to the Body tab.
-Select raw.
-Choose JSON from the dropdown.
-Paste a sample JSON like the one below:
+### Step 2: Access the Application
 
-JSON
+- **API Base URL:** `http://localhost:8080`  
+- **H2 Console:** `http://localhost:8080/h2-console`
 
+---
+
+## 🧪 Testing the API with Postman
+
+1. Open **Postman**.
+2. Choose the appropriate HTTP method (GET, POST, PUT, DELETE).
+3. Use an endpoint like:  
+   `http://localhost:8080/get products`
+
+### Sample JSON for POST / PUT
+
+```json
 {
   "prodid": 101,
   "prodname": "Wireless Mouse",
   "price": 499.99
 }
+```
 
-Set the following Headers:
+### Required Headers
 
-Key	Value
-Content-Type	application/json
+| Key           | Value              |
+|----------------|--------------------|
+| Content-Type   | application/json   |
 
-Export to Sheets
-🗃️ H2 Database Console
-The project uses an H2 in-memory database, which resets every time the server restarts.
+---
 
-🔗 Access Console:
-Visit: http://localhost:8080/h2-console
+## 🗃️ H2 Database Console
 
-🔐 Default Credentials:
-JDBC URL: jdbc:h2:mem:testdb
-Username: sa
-Password: (leave blank)
-✅ Ensure this is present in application.properties:
-Properties
+The app uses an **in-memory H2 database**. Data resets every time the server restarts.
 
+### 🔗 Access Console
+
+- URL: `http://localhost:8080/h2-console`
+
+### 🔐 Default Credentials
+
+| Property        | Value                  |
+|----------------|------------------------|
+| JDBC URL       | `jdbc:h2:mem:testdb`   |
+| Username       | `sa`                   |
+| Password       | *(leave blank)*        |
+
+### ✅ Required Configuration (in `application.properties`)
+
+```properties
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 spring.datasource.url=jdbc:h2:mem:testdb
+```
+
+---
 
 
